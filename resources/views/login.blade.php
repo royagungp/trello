@@ -3,10 +3,10 @@
 @section('content-dinamis')
 <form action="{{Route('login.auth')}}" method="POST" class=" card w-75 d-block mx-auto my-5">
     @csrf
-@if (Session::get('success'))
-<div class="alert alert-success">{{Session::get('success')}}</div>
+@if (session('success'))
+<div class="alert alert-success">{{session('success')}}</div>
 @endif
-    @if (Session::get('failed'))
+    @if (session('failed'))
     <div class="alert alert-danger">{{ Session::get('failed')}}</div>
     @endif
     <div class="card-body">

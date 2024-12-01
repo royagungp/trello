@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class isLogin
+class isGuest
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class isLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()){
-            return $next($request);
-        } else{
-            //jika belum login arahkan kembali ke halaman login
-            return redirect()->back()->with('failed', 'Anda harus login terlebih dahulu');
+        if(Auth::check()){
+            return redirect()->route('landing_page')->with('failed','anda harus log out dulu');
         }
+        return $next($request);
     }
 }

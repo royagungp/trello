@@ -2,6 +2,12 @@
 {{-- extends : memanggil file blade biasanya untuk template, pemanggilannya : folder.file --}}
 
 @section('content-dinamis')
+@if (session('failed'))
+<div class="alert alert-danger text-center w-50 mx-auto">
+    {{ session('failed') }}
+</div>
+@endif
+
 {{-- section : mengisi html ke yield yg ada di file extends --}}
     <h1 class="mt-3 text-center">Selamat Datang, {{ Auth::user()->name}}</h1>
 
@@ -19,7 +25,7 @@
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
-                <h2 class="display-6 fw-bold mb-4">25 Tahun Menghadirkan Cita Rasa Khas Jawa</h2>
+                <h2 class="display-6 fw-bold mb-4">25 Tahun Menghadirkan Cita Rasa Khas Padang</h2>
                 <p class="lead text-muted mb-4">Perjalanan kami dimulai dari sebuah warung kecil, kini menjadi destinasi kuliner modern dengan tetap mempertahankan keaslian resep leluhur.</p>
                 <div class="row g-4">
                     <div class="col-md-6">
@@ -155,7 +161,7 @@
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card testimonial-card h-100 shadow-sm">
                     <div class="card-body text-center p-4">
-                        <img src="{{ asset('assets/images/IMG_20241012_072807_270.jpg') }}" alt="Customer" class="rounded-circle" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('assets/images/ferdi.jpeg') }}" alt="Customer" class="rounded-circle" style="width: 150px; height: 150px;">
                         <h5 class="card-title">Ferdiansyah</h5>
                         <p class="text-muted mb-3">Food Blogger</p>
                         <p class="card-text">"Gudek Koyok adalah makanan terenak yang pernah saya coba.Dengan rasa bumbu alami yang tak pernah bisa dilupakan!!"</p>
@@ -172,7 +178,7 @@
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card testimonial-card h-100 shadow-sm">
                     <div class="card-body text-center p-4">
-                        <img src="{{ asset('assets/images/IMG_20241012_074432_485.jpg') }}" alt="Customer" class="rounded-circle" style="width: 150px; height: 150px;">
+                        <img src="{{ asset('assets/images/alif.jpg') }}" alt="Customer" class="rounded-circle" style="width: 150px; height: 150px;">
 
                         <h5 class="card-title">Alif Razabi</h5>
                         <p class="text-muted mb-3">Food Blogger</p>

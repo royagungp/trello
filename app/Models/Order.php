@@ -19,4 +19,10 @@ class Order extends Model
     protected $casts = [
         'naspads' => 'array',
     ];
+
+    public function user(){
+        // menghubungkas ke primary key nya
+        // dalam kurung meruoakan nama model tempt penyimpanan dari Pk nya si FK yg ada di model ini
+        return $this->belongsTo(User::class);
+    }
 }

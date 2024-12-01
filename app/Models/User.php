@@ -42,4 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function orders()
+    {
+        // membuat relasi ke teable lain dengan tipe one to many
+        // dalam kurung nerupakan nama mdoel yang akan disambungkan (tempat PK)
+        return $this->hasMany(Order::class);  // Menggunakan 'hasMany' yang benar
+    }
 }

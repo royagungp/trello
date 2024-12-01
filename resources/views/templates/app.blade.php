@@ -40,7 +40,7 @@
                             1. path (/)
                             2. name -> {{ route('name_routenya') }} : lebih baik
                         --}}
-                        <a class="nav-link {{ Route::is('landing_page') ? 'active' : '' }}" href="{{ route('landing_page') }}">Landing</a>
+                        <a class="nav-link {{ Route::is('landing_page') ? 'active' : '' }}" href="{{ route('landing_page') }}">Dashboard</a>
                     </li>
                     @if(Auth::user()->role == 'admin')
                     <li class="nav-item">
@@ -49,11 +49,20 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('akun') ? 'active' : '' }}" href="{{ route('akun') }}">Kelola Akun</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('orders.admin') ? 'active' : '' }}"
+                            href="{{ route('orders.admin') }}">Data Pembelian</a>
+                        
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('orders') ? 'active' : '' }}" href="{{ route('orders') }}">Order</a>
+                    </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}">Logout</a>
                     </li>
-
+                    
                 </ul>
                 <form class="d-flex" role="search" action="" method="GET">
                     {{-- mengaktifkan form di laravel :

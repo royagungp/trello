@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
-class isLogin
+class isKasir
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class isLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()){
+        if (Auth::user()->role == 'kasir') {
             return $next($request);
-        } else{
-            //jika belum login arahkan kembali ke halaman login
-            return redirect()->back()->with('failed', 'Anda harus login terlebih dahulu');
         }
+            return redirect()->back()->with('failed', 'anda tidak memiliki hak akses'); 
     }
 }
